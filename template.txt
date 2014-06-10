@@ -1,0 +1,39 @@
+package iit.android.language.LANGUAGE_NAME;
+import iit.android.language.Language;
+import iit.android.swarachakra.KeyAttr;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.annotation.SuppressLint;
+
+public class MainLanguage extends Language{
+	
+	public MainLanguage() {
+		name = "LANGUAGE_NAME";
+		nKeys = N_KEYS;
+		myKey = new ArrayList<KeyAttr>(nKeys);
+		defaultChakra = new String[] {DEFAULT_CHAKRA};
+		halantExists =  HALANT_EXISTS;
+		halantEnd = HALANT_END;
+		
+		KeyAttr tempKey = new KeyAttr();
+		for (int i=0; i < nKeys; i++ ) {
+			myKey.add(i, tempKey);
+		}
+
+		ALL_KEYS
+
+
+	}
+
+	@Override @SuppressLint("UseSparseArrays")
+	public HashMap<Integer, KeyAttr> hashThis() {
+		HashMap<Integer, KeyAttr> hashed = new HashMap<Integer, KeyAttr>();
+		for (int i=0; i<nKeys; i++) {
+			KeyAttr key = myKey.get(i);
+			hashed.put(key.code, key);
+		}
+		return hashed;
+	}
+}
